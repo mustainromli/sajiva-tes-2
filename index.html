@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sajiva - Pure. Simple. Beautiful</title>
-    
+
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -37,24 +39,31 @@
     </script>
     <style>
         /* Custom Styles & Overrides */
-        body { font-family: 'Poppins', sans-serif; }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
         .hero-bg {
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
         }
+
         .catalog-shadow {
-            box-shadow: 20px 20px 0px 0px rgba(46,125,50,0.2);
+            box-shadow: 20px 20px 0px 0px rgba(46, 125, 50, 0.2);
         }
+
         .card-hover {
             transition: all 0.3s ease;
         }
+
         .card-hover:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
     </style>
 </head>
+
 <body class="bg-sajiva-light text-gray-800 antialiased overflow-x-hidden">
 
     <!-- Navigation -->
@@ -69,15 +78,22 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#sajiva-story" class="text-gray-600 hover:text-sajiva-green font-medium transition-colors" data-i18n="nav_story">Sajiva Story</a>
-                    <a href="#community-impact" class="text-gray-600 hover:text-sajiva-green font-medium transition-colors" data-i18n="nav_impact">Community Impact</a>
-                    <a href="#be-better" class="text-gray-600 hover:text-sajiva-green font-medium transition-colors" data-i18n="nav_better">Be Better With Us</a>
-                    <a href="#contact" class="bg-sajiva-green text-white px-5 py-2 rounded-full hover:bg-sajiva-dark font-medium transition-colors shadow-md" data-i18n="nav_start">Start Journey</a>
-                    
+                    <a href="#sajiva-story" class="text-gray-600 hover:text-sajiva-green font-medium transition-colors"
+                        data-i18n="nav_story">Sajiva Story</a>
+                    <a href="#community-impact"
+                        class="text-gray-600 hover:text-sajiva-green font-medium transition-colors"
+                        data-i18n="nav_impact">Community Impact</a>
+                    <a href="#be-better" class="text-gray-600 hover:text-sajiva-green font-medium transition-colors"
+                        data-i18n="nav_better">Be Better With Us</a>
+                    <a href="#contact"
+                        class="bg-sajiva-green text-white px-5 py-2 rounded-full hover:bg-sajiva-dark font-medium transition-colors shadow-md"
+                        data-i18n="nav_start">Start Journey</a>
+
                     <!-- Language Switcher -->
                     <div class="relative flex items-center bg-gray-100 rounded-full px-3 py-1">
                         <i class="fa-solid fa-globe text-gray-500 mr-2 text-sm"></i>
-                        <select id="languageSwitcher" class="bg-transparent border-none text-sm font-medium text-gray-700 focus:outline-none focus:ring-0 cursor-pointer">
+                        <select id="languageSwitcher"
+                            class="bg-transparent border-none text-sm font-medium text-gray-700 focus:outline-none focus:ring-0 cursor-pointer">
                             <option value="id" selected>ID - Indonesia</option>
                             <option value="en">EN - English</option>
                             <option value="zh">ZH - 中文</option>
@@ -87,7 +103,8 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center gap-4">
-                    <select id="mobileLanguageSwitcher" class="bg-gray-100 border-none rounded-full px-2 py-1 text-xs font-medium text-gray-700 focus:outline-none">
+                    <select id="mobileLanguageSwitcher"
+                        class="bg-gray-100 border-none rounded-full px-2 py-1 text-xs font-medium text-gray-700 focus:outline-none">
                         <option value="id" selected>ID</option>
                         <option value="en">EN</option>
                         <option value="zh">ZH</option>
@@ -100,114 +117,127 @@
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0">
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0">
             <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
-                <a href="#sajiva-story" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md" data-i18n="nav_story">Sajiva Story</a>
-                <a href="#community-impact" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md" data-i18n="nav_impact">Community Impact</a>
-                <a href="#be-better" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md" data-i18n="nav_better">Be Better With Us</a>
-                <a href="#contact" class="block mt-4 text-center bg-sajiva-green text-white px-3 py-3 rounded-full font-medium hover:bg-sajiva-dark" data-i18n="nav_start">Start Journey</a>
+                <a href="#sajiva-story"
+                    class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md"
+                    data-i18n="nav_story">Sajiva Story</a>
+                <a href="#community-impact"
+                    class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md"
+                    data-i18n="nav_impact">Community Impact</a>
+                <a href="#be-better"
+                    class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md"
+                    data-i18n="nav_better">Be Better With Us</a>
+                <a href="#contact"
+                    class="block mt-4 text-center bg-sajiva-green text-white px-3 py-3 rounded-full font-medium hover:bg-sajiva-dark"
+                    data-i18n="nav_start">Start Journey</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-<!-- Hero Section -->
-<header id="hero" class="h-screen flex items-center justify-center pt-20 relative bg-gray-900">
-    <!-- 🎥 VIDEO BACKGROUND -->
-    <video 
-        autoplay 
-        muted 
-        loop 
-        playsinline 
-        class="absolute top-0 left-0 w-full h-full object-cover z-0"
-        id="heroVideo"
-        poster="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop"
-    >
-        <source src="video/Tes-Hero-New2.mp4" type="video/mp4">
-        Browser Anda tidak mendukung tag video.
-    </video>
-    
-    <!-- Loading Indicator -->
-    <div id="videoLoading" class="absolute inset-0 flex items-center justify-center z-0 bg-gray-900">
-        <div class="text-white text-center">
-            <i class="fa-solid fa-circle-notch fa-spin text-4xl mb-4"></i>
-            <p>Loading video...</p>
-            <p class="text-sm mt-2">Jika terlalu lama, file mungkin terlalu besar</p>
-        </div>
-    </div>
-    
-    <!-- Fallback Background -->
-    <div 
-        id="videoFallback" 
-        class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0"
-        style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop'); display: none;"
-    ></div>
-    
-    <!-- Overlay -->
-    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 z-0 pointer-events-none"></div>
-    
-    <div class="text-center px-4 max-w-4xl z-10 relative">
-        <h2 class="text-yellow-400 font-medium tracking-widest uppercase mb-4 text-sm md:text-lg animate-pulse" data-i18n="hero_sub">Jadilah Bagian dari Perjalanan</h2>
-        <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight drop-shadow-lg" data-i18n="hero_title">Murni. Sederhana. Indah</h1>
-        <a href="#sajiva-story" class="inline-flex items-center gap-2 bg-white text-sajiva-green font-semibold px-8 py-4 rounded-full hover:bg-sajiva-light hover:scale-105 transition-all shadow-xl">
-            <span data-i18n="hero_cta">Mulai Perjalanan</span>
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
-    </div>
-    
-    <!-- Decorative Bottom Shape -->
-    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-        <svg class="relative block w-full h-[50px] md:h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C54.44,84.2,110.37,72.6,164.7,61.98,219.03,51.36,273.36,40.74,321.39,56.44Z" class="shape-fill"></path>
-        </svg>
-    </div>
-</header>
+    <!-- Hero Section -->
+    <header id="hero" class="h-screen flex items-center justify-center pt-20 relative bg-gray-900">
+        <!-- 🎥 VIDEO BACKGROUND -->
+        <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0"
+            id="heroVideo"
+            poster="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop">
+            <source src="video/tes-hero-new1.mp4" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
+        </video>
 
-<script>
-// Video debugging
-window.addEventListener('load', function() {
-    const video = document.getElementById('heroVideo');
-    const loading = document.getElementById('videoLoading');
-    const fallback = document.getElementById('videoFallback');
-    
-    console.log('🎥 Video element loaded');
-    console.log('Video src:', video.querySelector('source').src);
-    
-    // Check if video loads
-    video.addEventListener('loadeddata', function() {
-        console.log('✅ Video data loaded successfully!');
-        setTimeout(() => {
-            loading.style.display = 'none';
-        }, 1000);
-    });
-    
-    video.addEventListener('error', function(e) {
-        console.error('❌ Video error:', video.error);
-        console.log('Error code:', video.error?.code);
-        
-        loading.innerHTML = `
+        <!-- Loading Indicator -->
+        <div id="videoLoading" class="absolute inset-0 flex items-center justify-center z-0 bg-gray-900">
+            <div class="text-white text-center">
+                <i class="fa-solid fa-circle-notch fa-spin text-4xl mb-4"></i>
+                <p>Loading video...</p>
+                <p class="text-sm mt-2">Jika terlalu lama, file mungkin terlalu besar</p>
+            </div>
+        </div>
+
+        <!-- Fallback Background -->
+        <div id="videoFallback" class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop'); display: none;">
+        </div>
+
+        <!-- Overlay -->
+        <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 z-0 pointer-events-none"></div>
+
+        <div class="text-center px-4 max-w-4xl z-10 relative">
+            <h2 class="text-yellow-400 font-medium tracking-widest uppercase mb-4 text-sm md:text-lg animate-pulse"
+                data-i18n="hero_sub">Jadilah Bagian dari Perjalanan</h2>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight drop-shadow-lg"
+                data-i18n="hero_title">Murni. Sederhana. Indah</h1>
+            <a href="#sajiva-story"
+                class="inline-flex items-center gap-2 bg-white text-sajiva-green font-semibold px-8 py-4 rounded-full hover:bg-sajiva-light hover:scale-105 transition-all shadow-xl">
+                <span data-i18n="hero_cta">Mulai Perjalanan</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <!-- Decorative Bottom Shape -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg class="relative block w-full h-[50px] md:h-[100px]" data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C54.44,84.2,110.37,72.6,164.7,61.98,219.03,51.36,273.36,40.74,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <script>
+        // Video debugging
+        document.addEventListener('DOMContentLoaded', function () {
+            const video = document.getElementById('heroVideo');
+            const loading = document.getElementById('videoLoading');
+            const fallback = document.getElementById('videoFallback');
+
+            console.log('🎥 Video element loaded');
+            console.log('Video src:', video.querySelector('source').src);
+
+            function handleVideoLoad() {
+                console.log('✅ Video data loaded successfully!');
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                }, 500);
+            }
+
+            // Check if video loads
+            if (video.readyState >= 2) {
+                handleVideoLoad();
+            } else {
+                video.addEventListener('loadeddata', handleVideoLoad);
+            }
+
+            video.addEventListener('error', function (e) {
+                console.error('❌ Video error:', video.error);
+                console.log('Error code:', video.error?.code);
+
+                loading.innerHTML = `
             <div class="text-red-400">
                 <i class="fa-solid fa-triangle-exclamation text-4xl mb-4"></i>
                 <p>Video gagal dimuat</p>
                 <p class="text-sm mt-2">Menggunakan background fallback...</p>
             </div>
         `;
-        
-        setTimeout(() => {
-            loading.style.display = 'none';
-            fallback.style.display = 'block';
-        }, 2000);
-    });
-    
-    // Timeout jika video terlalu lama
-    setTimeout(() => {
-        if (loading.style.display !== 'none') {
-            console.warn('⚠️ Video loading timeout (>10s)');
-            console.log('Mungkin file terlalu besar atau koneksi lambat');
-        }
-    }, 10000);
-});
-</script>
+
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                    fallback.style.display = 'block';
+                }, 2000);
+            });
+
+            // Timeout jika video terlalu lama
+            setTimeout(() => {
+                if (loading.style.display !== 'none' && video.readyState < 2) {
+                    console.warn('⚠️ Video loading timeout (>10s)');
+                    console.log('Mungkin file terlalu besar atau koneksi lambat');
+                }
+            }, 10000);
+        });
+    </script>
 
     <!-- Sajiva Story Section -->
     <section id="sajiva-story" class="py-20 md:py-32 relative">
@@ -216,15 +246,25 @@ window.addEventListener('load', function() {
                 <!-- Text Content -->
                 <div class="order-2 lg:order-1">
                     <h3 class="text-sajiva-earth font-semibold tracking-wider uppercase mb-2">The Origin</h3>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8" data-i18n="story_title">Mengapa Sajiva? Apa itu Sajiva?</h2>
-                    
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8" data-i18n="story_title">Mengapa
+                        Sajiva? Apa itu Sajiva?</h2>
+
                     <div class="space-y-6 text-gray-600 leading-relaxed text-lg">
-                        <p data-i18n="story_p1">Setiap fajar, petani Nusantara telah menyapa tanah. Tangan mereka kapalan, namun hasilnya murni: rempah, daun, dan akar yang menyimpan rahasia kecantikan sejati. Kami percaya, alam tak perlu dipaksa—ia hanya butuh ruang untuk bernapas. Setiap tetes ramuan adalah bukti bahwa keindahan lahir dari kerja keras yang tulus. Maka, kami hadir sebagai jembatan. Membantu Anda menemukan produk alami terbaik, tanpa kompromi, tanpa bahan asing.</p>
-                        <p data-i18n="story_p2">Di balik setiap kemasan, tersimpan keringat petani yang layak dihargai, dan akses pasar yang selama ini tertutup. Bersama, kita tak hanya merawat diri. Kita memberi napas pada bumi, dan keadilan pada mereka yang menanam harapan.</p>
-                        <blockquote class="border-l-4 border-sajiva-green pl-4 italic font-medium text-gray-800 my-8" data-i18n="story_quote">
+                        <p data-i18n="story_p1">Setiap fajar, petani Nusantara telah menyapa tanah. Tangan mereka
+                            kapalan, namun hasilnya murni: rempah, daun, dan akar yang menyimpan rahasia kecantikan
+                            sejati. Kami percaya, alam tak perlu dipaksa—ia hanya butuh ruang untuk bernapas. Setiap
+                            tetes ramuan adalah bukti bahwa keindahan lahir dari kerja keras yang tulus. Maka, kami
+                            hadir sebagai jembatan. Membantu Anda menemukan produk alami terbaik, tanpa kompromi, tanpa
+                            bahan asing.</p>
+                        <p data-i18n="story_p2">Di balik setiap kemasan, tersimpan keringat petani yang layak dihargai,
+                            dan akses pasar yang selama ini tertutup. Bersama, kita tak hanya merawat diri. Kita memberi
+                            napas pada bumi, dan keadilan pada mereka yang menanam harapan.</p>
+                        <blockquote class="border-l-4 border-sajiva-green pl-4 italic font-medium text-gray-800 my-8"
+                            data-i18n="story_quote">
                             "Kami persembahkan mahakarya para petani nusantara untuk kesehatan dan kecantikan Anda."
                         </blockquote>
-                        <p class="font-semibold" data-i18n="story_sign">Sincerely with love,<br><span class="text-sajiva-green">Founders</span></p>
+                        <p class="font-semibold" data-i18n="story_sign">Sincerely with love,<br><span
+                                class="text-sajiva-green">Founders</span></p>
                     </div>
                 </div>
 
@@ -232,18 +272,24 @@ window.addEventListener('load', function() {
                 <div class="order-1 lg:order-2 relative">
                     <div class="relative z-10 rounded-2xl overflow-hidden catalog-shadow">
                         <!-- Mockup Catalog Image -->
-                        <img src="https://images.unsplash.com/photo-1608248593842-8021c64e6224?q=80&w=1500&auto=format&fit=crop" alt="Sajiva Catalog" class="w-full h-auto object-cover aspect-[4/5] hover:scale-105 transition-transform duration-700">
-                        
+                        <img src="https://images.unsplash.com/photo-1608248593842-8021c64e6224?q=80&w=1500&auto=format&fit=crop"
+                            alt="Sajiva Catalog"
+                            class="w-full h-auto object-cover aspect-[4/5] hover:scale-105 transition-transform duration-700">
+
                         <!-- Overlay Download Button -->
-                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <a href="#" onclick="alert('Downloading Catalog...'); return false;" class="bg-white text-sajiva-green flex items-center gap-3 px-6 py-3 rounded-full font-bold shadow-2xl hover:bg-sajiva-green hover:text-white transition-colors">
+                        <div
+                            class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <a href="#" onclick="alert('Downloading Catalog...'); return false;"
+                                class="bg-white text-sajiva-green flex items-center gap-3 px-6 py-3 rounded-full font-bold shadow-2xl hover:bg-sajiva-green hover:text-white transition-colors">
                                 <i class="fa-solid fa-download"></i>
                                 <span data-i18n="story_download">Unduh Katalog</span>
                             </a>
                         </div>
                     </div>
                     <!-- Decorative element -->
-                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-sajiva-sand rounded-full -z-10 blur-2xl opacity-60"></div>
+                    <div
+                        class="absolute -bottom-10 -left-10 w-40 h-40 bg-sajiva-sand rounded-full -z-10 blur-2xl opacity-60">
+                    </div>
                 </div>
             </div>
         </div>
@@ -253,31 +299,40 @@ window.addEventListener('load', function() {
     <section id="community-impact" class="py-20 md:py-32 bg-sajiva-sand/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-sm font-bold text-sajiva-earth tracking-widest uppercase mb-2">Be Part of the Journey</h2>
-                <h3 class="text-3xl md:text-5xl font-bold text-gray-900" data-i18n="impact_headline">Dampak adalah Tren Baru</h3>
+                <h2 class="text-sm font-bold text-sajiva-earth tracking-widest uppercase mb-2">Be Part of the Journey
+                </h2>
+                <h3 class="text-3xl md:text-5xl font-bold text-gray-900" data-i18n="impact_headline">Dampak adalah Tren
+                    Baru</h3>
             </div>
 
             <div class="grid lg:grid-cols-12 gap-12 items-start">
-                
+
                 <!-- Video / Main Visual (Left 7 cols) -->
                 <div class="lg:col-span-7 space-y-8">
                     <!-- Video Placeholder -->
                     <div class="relative w-full aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-xl group">
-                        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=2071&auto=format&fit=crop" alt="Video Thumbnail" class="w-full h-full object-cover opacity-70 group-hover:opacity-50 transition-opacity duration-300">
+                        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=2071&auto=format&fit=crop"
+                            alt="Video Thumbnail"
+                            class="w-full h-full object-cover opacity-70 group-hover:opacity-50 transition-opacity duration-300">
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <button class="w-20 h-20 bg-sajiva-green/90 text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-sajiva-green hover:scale-110 transition-all z-10 pl-1">
+                            <button
+                                class="w-20 h-20 bg-sajiva-green/90 text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-sajiva-green hover:scale-110 transition-all z-10 pl-1">
                                 <i class="fa-solid fa-play"></i>
                             </button>
                         </div>
-                        <div class="absolute bottom-4 left-4 text-white font-bold tracking-widest text-lg" data-i18n="impact_video_label">*VIDEO</div>
+                        <div class="absolute bottom-4 left-4 text-white font-bold tracking-widest text-lg"
+                            data-i18n="impact_video_label">*VIDEO</div>
                     </div>
 
                     <!-- Impact Ambassador Card -->
-                    <div class="bg-white rounded-2xl p-6 flex items-center gap-6 shadow-md border-l-4 border-sajiva-green">
-                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=250&auto=format&fit=crop" alt="Ambassador" class="w-20 h-20 rounded-full object-cover shadow-sm">
+                    <div
+                        class="bg-white rounded-2xl p-6 flex items-center gap-6 shadow-md border-l-4 border-sajiva-green">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=250&auto=format&fit=crop"
+                            alt="Ambassador" class="w-20 h-20 rounded-full object-cover shadow-sm">
                         <div>
                             <h4 class="font-bold text-gray-900 text-lg">Sajiva Impact Ambassador</h4>
-                            <p class="text-sajiva-green italic font-medium" data-i18n="impact_radiate">Radiate the Beauty Within.</p>
+                            <p class="text-sajiva-green italic font-medium" data-i18n="impact_radiate">Radiate the
+                                Beauty Within.</p>
                         </div>
                     </div>
                 </div>
@@ -295,15 +350,24 @@ window.addEventListener('load', function() {
                             <div class="text-gray-600 font-medium" data-i18n="stat_village">Desa Mitra</div>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-500 italic mb-8 text-center" data-i18n="stat_counting">Dan terus bertambah...</p>
+                    <p class="text-sm text-gray-500 italic mb-8 text-center" data-i18n="stat_counting">Dan terus
+                        bertambah...</p>
 
                     <!-- Narrative -->
                     <div class="bg-white p-8 rounded-2xl shadow-lg">
-                        <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="impact_p1">Tangan yang menghormati karunia bumi seringkali menghadapi hambatan diam dari pasar. Sajiva menjembatani kesenjangan tersebut—menghubungkan petani langsung kepada Anda, memotong perantara, dan memastikan petani benar-benar sejahtera.</p>
-                        <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="impact_p2">Sebagai rasa syukur atas dukungan Anda, Anda berhak menerima hadiah termurni dari alam untuk merawat kecantikan Anda. Karena saat Anda memberi kembali, Anda tidak hanya mekar di luar—Anda memancarkan kecantikan dari dalam.</p>
+                        <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="impact_p1">Tangan yang menghormati
+                            karunia bumi seringkali menghadapi hambatan diam dari pasar. Sajiva menjembatani kesenjangan
+                            tersebut—menghubungkan petani langsung kepada Anda, memotong perantara, dan memastikan
+                            petani benar-benar sejahtera.</p>
+                        <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="impact_p2">Sebagai rasa syukur atas
+                            dukungan Anda, Anda berhak menerima hadiah termurni dari alam untuk merawat kecantikan Anda.
+                            Karena saat Anda memberi kembali, Anda tidak hanya mekar di luar—Anda memancarkan kecantikan
+                            dari dalam.</p>
                         <p class="font-bold text-gray-900 mb-8">- Sajiva</p>
-                        
-                        <a href="#contact" class="block w-full text-center bg-sajiva-green text-white font-semibold py-4 rounded-xl hover:bg-sajiva-dark transition-colors shadow-md" data-i18n="impact_cta">
+
+                        <a href="#contact"
+                            class="block w-full text-center bg-sajiva-green text-white font-semibold py-4 rounded-xl hover:bg-sajiva-dark transition-colors shadow-md"
+                            data-i18n="impact_cta">
                             Ingin Tumbuh Bersama? Klik di sini untuk mendaftar!
                         </a>
                     </div>
@@ -316,7 +380,8 @@ window.addEventListener('load', function() {
     <section id="be-better" class="py-20 md:py-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-sajiva-green mb-4" data-i18n="better_title">Be Better With Us</h2>
+                <h2 class="text-3xl md:text-5xl font-bold text-sajiva-green mb-4" data-i18n="better_title">Be Better
+                    With Us</h2>
                 <div class="w-24 h-1 bg-sajiva-earth mx-auto rounded-full"></div>
             </div>
 
@@ -324,39 +389,49 @@ window.addEventListener('load', function() {
                 <!-- Card 1 -->
                 <div class="bg-white rounded-3xl overflow-hidden card-hover shadow-lg border border-gray-100 group">
                     <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=800&auto=format&fit=crop" alt="Coffee" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=800&auto=format&fit=crop"
+                            alt="Coffee"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </div>
                     <div class="p-8 text-center bg-sajiva-sand/10">
-                        <h3 class="text-xl font-semibold text-gray-900" data-i18n="card_1">Secangkir kopi memberdayakan sekolah</h3>
+                        <h3 class="text-xl font-semibold text-gray-900" data-i18n="card_1">Secangkir kopi memberdayakan
+                            sekolah</h3>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="bg-white rounded-3xl overflow-hidden card-hover shadow-lg border border-gray-100 group">
                     <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1596647906950-89196b0521ce?q=80&w=800&auto=format&fit=crop" alt="Spice" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1596647906950-89196b0521ce?q=80&w=800&auto=format&fit=crop"
+                            alt="Spice"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </div>
                     <div class="p-8 text-center bg-sajiva-sand/10">
-                        <h3 class="text-xl font-semibold text-gray-900" data-i18n="card_2">Harapan petani mekar dengan segenggam rempah</h3>
+                        <h3 class="text-xl font-semibold text-gray-900" data-i18n="card_2">Harapan petani mekar dengan
+                            segenggam rempah</h3>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="bg-white rounded-3xl overflow-hidden card-hover shadow-lg border border-gray-100 group">
                     <div class="h-64 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop" alt="Coconut" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop"
+                            alt="Coconut"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     </div>
                     <div class="p-8 text-center bg-sajiva-sand/10">
-                        <h3 class="text-xl font-semibold text-gray-900" data-i18n="card_3">Hadiah alam untuk kulit sehatmu</h3>
+                        <h3 class="text-xl font-semibold text-gray-900" data-i18n="card_3">Hadiah alam untuk kulit
+                            sehatmu</h3>
                     </div>
                 </div>
             </div>
 
             <div class="mt-12 text-center">
-                <a href="#" class="inline-flex text-sajiva-green font-bold hover:text-sajiva-dark text-lg items-center gap-2 transition-colors">
+                <a href="#"
+                    class="inline-flex text-sajiva-green font-bold hover:text-sajiva-dark text-lg items-center gap-2 transition-colors">
                     <span data-i18n="see_more">Lihat Selengkapnya ..</span>
                     <i class="fa-solid fa-arrow-right-long"></i>
                 </a>
@@ -367,7 +442,7 @@ window.addEventListener('load', function() {
     <!-- Footer & Contact Section -->
     <footer id="contact" class="bg-sajiva-green text-white pt-20 pb-10 rounded-t-[3rem] mt-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             <div class="grid lg:grid-cols-3 gap-12 mb-16">
                 <!-- Info Column -->
                 <div class="space-y-8">
@@ -375,7 +450,7 @@ window.addEventListener('load', function() {
                         <i class="fa-solid fa-leaf text-3xl text-yellow-400"></i>
                         <span class="font-bold text-3xl tracking-tight">Sajiva</span>
                     </div>
-                    
+
                     <div>
                         <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_factory">Our Factory:</h4>
                         <ol class="list-decimal list-inside space-y-2 text-white/80">
@@ -389,11 +464,13 @@ window.addEventListener('load', function() {
                         <ul class="space-y-2 text-white/80">
                             <li class="flex items-center gap-2">
                                 <i class="fa-solid fa-globe w-5"></i>
-                                <span data-i18n="footer_mainsite">Main Site</span>: <a href="#" class="hover:text-white underline decoration-transparent hover:decoration-white transition-all">www.sajivaagro.com</a>
+                                <span data-i18n="footer_mainsite">Main Site</span>: <a href="#"
+                                    class="hover:text-white underline decoration-transparent hover:decoration-white transition-all">www.sajivaagro.com</a>
                             </li>
                             <li class="flex items-center gap-2">
                                 <i class="fa-solid fa-heart w-5"></i>
-                                <span data-i18n="footer_socialwork">Social Work</span>: <a href="#" class="hover:text-white underline decoration-transparent hover:decoration-white transition-all">www.sajiva-care.org</a>
+                                <span data-i18n="footer_socialwork">Social Work</span>: <a href="#"
+                                    class="hover:text-white underline decoration-transparent hover:decoration-white transition-all">www.sajiva-care.org</a>
                             </li>
                         </ul>
                     </div>
@@ -402,26 +479,37 @@ window.addEventListener('load', function() {
                 <!-- Contact & Social Column -->
                 <div class="space-y-8">
                     <div>
-                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_contact_title">Contact Us:</h4>
+                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_contact_title">Contact Us:
+                        </h4>
                         <ul class="space-y-4 text-white/80">
                             <li class="flex items-center gap-3">
                                 <div class="bg-white/10 p-3 rounded-full"><i class="fa-solid fa-envelope"></i></div>
                                 <span>sajivaagro@gmail.com</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <div class="bg-white/10 p-3 rounded-full"><i class="fa-brands fa-whatsapp text-lg"></i></div>
+                                <div class="bg-white/10 p-3 rounded-full"><i class="fa-brands fa-whatsapp text-lg"></i>
+                                </div>
                                 <span>+62 887-4373-12018</span>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_connect">Let's Connect:</h4>
+                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_connect">Let's Connect:
+                        </h4>
                         <div class="flex gap-4">
-                            <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i class="fa-brands fa-tiktok"></i></a>
-                            <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i class="fa-brands fa-weixin"></i></a>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-tiktok"></i></a>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-weixin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -429,23 +517,32 @@ window.addEventListener('load', function() {
                 <!-- Contact Form Column -->
                 <div class="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
                     <h4 class="font-bold text-2xl mb-6 text-white" data-i18n="form_title">We are here for u</h4>
-                    
+
                     <form id="contactForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
                         <!-- Success Message Box (Hidden by default) -->
-                        <div id="formSuccess" class="hidden bg-green-500/20 border border-green-500 text-white p-3 rounded-xl text-sm text-center mb-4">
-                            <i class="fa-solid fa-check-circle mr-2"></i> <span data-i18n="form_success">Pesan berhasil terkirim!</span>
+                        <div id="formSuccess"
+                            class="hidden bg-green-500/20 border border-green-500 text-white p-3 rounded-xl text-sm text-center mb-4">
+                            <i class="fa-solid fa-check-circle mr-2"></i> <span data-i18n="form_success">Pesan berhasil
+                                terkirim!</span>
                         </div>
 
                         <div>
-                            <input type="text" id="nameInput" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all" data-i18n="form_name_placeholder" placeholder="Nama">
+                            <input type="text" id="nameInput" required
+                                class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all"
+                                data-i18n="form_name_placeholder" placeholder="Nama">
                         </div>
                         <div>
-                            <input type="email" id="emailInput" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all" data-i18n="form_email_placeholder" placeholder="E-mail">
+                            <input type="email" id="emailInput" required
+                                class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all"
+                                data-i18n="form_email_placeholder" placeholder="E-mail">
                         </div>
                         <div>
-                            <textarea id="messageInput" rows="3" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all resize-none" data-i18n="form_msg_placeholder" placeholder="Message"></textarea>
+                            <textarea id="messageInput" rows="3" required
+                                class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all resize-none"
+                                data-i18n="form_msg_placeholder" placeholder="Message"></textarea>
                         </div>
-                        <button type="submit" class="w-full bg-yellow-400 text-sajiva-green font-bold py-3 rounded-xl hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
+                        <button type="submit"
+                            class="w-full bg-yellow-400 text-sajiva-green font-bold py-3 rounded-xl hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
                             <span data-i18n="form_send">Send</span>
                             <i class="fa-solid fa-paper-plane"></i>
                         </button>
@@ -468,7 +565,7 @@ window.addEventListener('load', function() {
         // Mobile Menu Toggle
         const btn = document.getElementById('mobileMenuBtn');
         const menu = document.getElementById('mobileMenu');
-        
+
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
@@ -486,7 +583,7 @@ window.addEventListener('load', function() {
             const successBox = document.getElementById('formSuccess');
             successBox.classList.remove('hidden');
             document.getElementById('contactForm').reset();
-            
+
             // Hide success message after 4 seconds
             setTimeout(() => {
                 successBox.classList.add('hidden');
@@ -638,7 +735,7 @@ window.addEventListener('load', function() {
             // Sync selectors
             document.getElementById('languageSwitcher').value = lang;
             document.getElementById('mobileLanguageSwitcher').value = lang;
-            
+
             // Save preference to localStorage
             localStorage.setItem('sajiva_lang', lang);
         }
@@ -660,4 +757,5 @@ window.addEventListener('load', function() {
 
     </script>
 </body>
+
 </html>
