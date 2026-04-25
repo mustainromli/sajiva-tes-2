@@ -111,15 +111,40 @@
     </nav>
 
     <!-- Hero Section -->
-<header id="hero" class="h-screen flex items-center justify-center pt-20 relative">
-    <!-- 🎥 VIDEO BACKGROUND - BARU DITAMBAHKAN -->
-    <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+<!-- Hero Section -->
+<header id="hero" class="h-screen flex items-center justify-center pt-20 relative bg-gray-900">
+    <!-- 🎥 VIDEO BACKGROUND -->
+    <video 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        class="absolute top-0 left-0 w-full h-full object-cover z-0"
+        id="heroVideo"
+        poster="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop"
+    >
         <source src="video/tes-hero-new.mp4" type="video/mp4">
         Browser Anda tidak mendukung tag video.
     </video>
     
-    <!-- Overlay gelap agar teks tetap terbaca -->
-    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 z-0"></div>
+    <!-- Loading Indicator -->
+    <div id="videoLoading" class="absolute inset-0 flex items-center justify-center z-0 bg-gray-900">
+        <div class="text-white text-center">
+            <i class="fa-solid fa-circle-notch fa-spin text-4xl mb-4"></i>
+            <p>Loading video...</p>
+            <p class="text-sm mt-2">Jika terlalu lama, file mungkin terlalu besar</p>
+        </div>
+    </div>
+    
+    <!-- Fallback Background -->
+    <div 
+        id="videoFallback" 
+        class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop'); display: none;"
+    ></div>
+    
+    <!-- Overlay -->
+    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 z-0 pointer-events-none"></div>
     
     <div class="text-center px-4 max-w-4xl z-10 relative">
         <h2 class="text-yellow-400 font-medium tracking-widest uppercase mb-4 text-sm md:text-lg animate-pulse" data-i18n="hero_sub">Jadilah Bagian dari Perjalanan</h2>
@@ -137,6 +162,52 @@
         </svg>
     </div>
 </header>
+
+<script>
+// Video debugging
+window.addEventListener('load', function() {
+    const video = document.getElementById('heroVideo');
+    const loading = document.getElementById('videoLoading');
+    const fallback = document.getElementById('videoFallback');
+    
+    console.log('🎥 Video element loaded');
+    console.log('Video src:', video.querySelector('source').src);
+    
+    // Check if video loads
+    video.addEventListener('loadeddata', function() {
+        console.log('✅ Video data loaded successfully!');
+        setTimeout(() => {
+            loading.style.display = 'none';
+        }, 1000);
+    });
+    
+    video.addEventListener('error', function(e) {
+        console.error('❌ Video error:', video.error);
+        console.log('Error code:', video.error?.code);
+        
+        loading.innerHTML = `
+            <div class="text-red-400">
+                <i class="fa-solid fa-triangle-exclamation text-4xl mb-4"></i>
+                <p>Video gagal dimuat</p>
+                <p class="text-sm mt-2">Menggunakan background fallback...</p>
+            </div>
+        `;
+        
+        setTimeout(() => {
+            loading.style.display = 'none';
+            fallback.style.display = 'block';
+        }, 2000);
+    });
+    
+    // Timeout jika video terlalu lama
+    setTimeout(() => {
+        if (loading.style.display !== 'none') {
+            console.warn('⚠️ Video loading timeout (>10s)');
+            console.log('Mungkin file terlalu besar atau koneksi lambat');
+        }
+    }, 10000);
+});
+</script>
 
     <!-- Sajiva Story Section -->
     <section id="sajiva-story" class="py-20 md:py-32 relative">
