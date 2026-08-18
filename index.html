@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sajiva - Pure. Simple. Beautiful</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sajiva: {
+                            green: '#2e7d32',
+                            dark: '#1b4b1e',
+                            light: '#fdfbf7',
+                            earth: '#8b5a2b',
+                            sand: '#eaddcf'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Overrides */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .catalog-shadow {
+            box-shadow: 20px 20px 0px 0px rgba(46, 125, 50, 0.2);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+
+<body class="bg-sajiva-light text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="logos/sajiva-logo-buletan.jpeg" alt="Sajiva Logo"
+                        class="w-10 h-10 object-cover rounded-full shadow-sm border-2 border-sajiva-green">
+                    <span class="font-bold text-2xl text-sajiva-green tracking-tight">Sajiva</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#sajiva-story" class="text-gray-600 hover:text-sajiva-green font-medium transition-colors"
+                        data-i18n="nav_story">Sajiva Story</a>
+                    <a href="#community-impact"
+                        class="text-gray-600 hover:text-sajiva-green font-medium transition-colors"
+                        data-i18n="nav_impact">Community Impact</a>
+                    <a href="#be-better" class="text-gray-600 hover:text-sajiva-green font-medium transition-colors"
+                        data-i18n="nav_better">Our Product</a>
+                    <a href="#contact"
+                        class="bg-sajiva-green text-white px-5 py-2 rounded-full hover:bg-sajiva-dark font-medium transition-colors shadow-md"
+                        data-i18n="nav_start">Contact Us</a>
+
+                    <!-- Language Switcher -->
+                    <div class="relative flex items-center bg-gray-100 rounded-full px-3 py-1">
+                        <i class="fa-solid fa-globe text-gray-500 mr-2 text-sm"></i>
+                        <select id="languageSwitcher"
+                            class="bg-transparent border-none text-sm font-medium text-gray-700 focus:outline-none focus:ring-0 cursor-pointer">
+                            <option value="id" selected>ID - Indonesia</option>
+                            <option value="en">EN - English</option>
+                            <option value="zh">ZH - 中文</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <select id="mobileLanguageSwitcher"
+                        class="bg-gray-100 border-none rounded-full px-2 py-1 text-xs font-medium text-gray-700 focus:outline-none">
+                        <option value="id" selected>ID</option>
+                        <option value="en">EN</option>
+                        <option value="zh">ZH</option>
+                    </select>
+                    <button id="mobileMenuBtn" class="text-gray-600 hover:text-sajiva-green focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="#sajiva-story"
+                    class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md"
+                    data-i18n="nav_story">Sajiva Story</a>
+                <a href="#community-impact"
+                    class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md"
+                    data-i18n="nav_impact">Community Impact</a>
+                <a href="#be-better"
+                    class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md"
+                    data-i18n="nav_better">Our Product</a>
+                <a href="#contact"
+                    class="block mt-4 text-center bg-sajiva-green text-white px-3 py-3 rounded-full font-medium hover:bg-sajiva-dark"
+                    data-i18n="nav_start">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <header id="hero" class="h-screen flex items-center justify-center pt-20 relative bg-gray-900">
+        <!-- 🎥 VIDEO BACKGROUND -->
+        <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0"
+            id="heroVideo"
+            poster="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop">
+            <source src="video/real-main%20.mp4" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
+        </video>
+
+        <!-- Loading Indicator -->
+        <div id="videoLoading" class="absolute inset-0 flex items-center justify-center z-0 bg-gray-900">
+            <div class="text-white text-center">
+                <i class="fa-solid fa-circle-notch fa-spin text-4xl mb-4"></i>
+                <p>Loading video...</p>
+                <p class="text-sm mt-2">Jika terlalu lama, file mungkin terlalu besar</p>
+            </div>
+        </div>
+
+        <!-- Fallback Background -->
+        <div id="videoFallback" class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-0"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop'); display: none;">
+        </div>
+
+        <!-- Overlay -->
+        <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40 z-0 pointer-events-none"></div>
+
+        <div class="text-center px-4 max-w-4xl z-10 relative">
+            <h2 class="text-yellow-400 font-medium tracking-widest uppercase mb-4 text-sm md:text-lg animate-pulse"
+                data-i18n="hero_sub">Jadilah Bagian dari Perjalanan</h2>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight drop-shadow-lg"
+                data-i18n="hero_title">Murni. Sederhana. Indah</h1>
+        </div>
+
+
+    </header>
+
+    <script>
+        // Video debugging
+        document.addEventListener('DOMContentLoaded', function () {
+            const video = document.getElementById('heroVideo');
+            const loading = document.getElementById('videoLoading');
+            const fallback = document.getElementById('videoFallback');
+
+            console.log('🎥 Video element loaded');
+            console.log('Video src:', video.querySelector('source').src);
+
+            function handleVideoLoad() {
+                console.log('✅ Video data loaded successfully!');
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                }, 500);
+            }
+
+            // Check if video loads
+            if (video.readyState >= 2) {
+                handleVideoLoad();
+            } else {
+                video.addEventListener('loadeddata', handleVideoLoad);
+            }
+
+            video.addEventListener('error', function (e) {
+                console.error('❌ Video error:', video.error);
+                console.log('Error code:', video.error?.code);
+
+                loading.innerHTML = `
+            <div class="text-red-400">
+                <i class="fa-solid fa-triangle-exclamation text-4xl mb-4"></i>
+                <p>Video gagal dimuat</p>
+                <p class="text-sm mt-2">Menggunakan background fallback...</p>
+            </div>
+        `;
+
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                    fallback.style.display = 'block';
+                }, 2000);
+            });
+
+            // Timeout jika video terlalu lama
+            setTimeout(() => {
+                if (loading.style.display !== 'none' && video.readyState < 2) {
+                    console.warn('⚠️ Video loading timeout (>10s)');
+                    console.log('Mungkin file terlalu besar atau koneksi lambat');
+                }
+            }, 10000);
+        });
+    </script>
+
+    <!-- Sajiva Story Section -->
+    <section id="sajiva-story" class="py-20 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1">
+                    <h3 class="text-sajiva-earth font-semibold tracking-wider uppercase mb-2">The Origin</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8" data-i18n="story_title">Mengapa
+                        Sajiva? Apa itu Sajiva?</h2>
+
+                    <div class="space-y-6 text-gray-600 leading-relaxed text-lg">
+                        <p data-i18n="story_p1">Dari suburnya Tanah Indonesia, kami menghadirkan produk berkualitas
+                            terbaik langsung dari petani nusantara untuk memenuhi kebutuhan konsumen akan produk yang
+                            segar, alami, dan terpercaya.</p>
+                        <p data-i18n="story_p2">Kami membangun win-win solution yang tidak hanya menghadirkan produk
+                            terbaik bagi konsumen, tetapi juga membantu membawa petani ke hilir — menciptakan nilai
+                            tambah, pengolahan, hingga akses pasar yang lebih luas bagi petani Indonesia.</p>
+                        <blockquote class="border-l-4 border-sajiva-green pl-4 italic font-medium text-gray-800 my-8"
+                            data-i18n="story_quote">
+                            "Kami persembahkan <span
+                                class="bg-yellow-200 text-sajiva-dark px-1.5 py-0.5 rounded font-semibold">mahakarya
+                                petani nusantara untuk anda</span>."
+                        </blockquote>
+                        <p class="font-semibold" data-i18n="story_sign">Sincerely with love,<br><span
+                                class="text-sajiva-green">Founders</span></p>
+                    </div>
+                </div>
+
+                <!-- Visual Content -->
+                <div class="order-1 lg:order-2 relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden catalog-shadow">
+                        <!-- Mockup Catalog Image -->
+                        <img src="cover/cover-journey.jpeg" alt="Sajiva Catalog"
+                            class="w-full h-auto object-cover aspect-[4/5] hover:scale-105 transition-transform duration-700">
+
+                        <!-- Overlay Download Button -->
+                        <div
+                            class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <a href="pdf/SAJIVA-JOURNEY-1.pdf" download="SAJIVA-JOURNEY-1.pdf"
+                                class="bg-white text-sajiva-green flex items-center gap-3 px-6 py-3 rounded-full font-bold shadow-2xl hover:bg-sajiva-green hover:text-white transition-colors">
+                                <i class="fa-solid fa-download"></i>
+                                <span data-i18n="read_ourstory">Unduh cerita kami</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Decorative element -->
+                    <div
+                        class="absolute -bottom-10 -left-10 w-40 h-40 bg-sajiva-sand rounded-full -z-10 blur-2xl opacity-60">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Impact Section -->
+    <section id="community-impact" class="py-20 md:py-32 bg-sajiva-sand/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-sajiva-earth tracking-widest uppercase mb-2">Be Part of the Journey
+                </h2>
+                <h3 class="text-3xl md:text-5xl font-bold text-gray-900" data-i18n="impact_headline">Dampak adalah Tren
+                    Baru</h3>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+                <!-- Video / Main Visual (Left 7 cols) -->
+                <div class="lg:col-span-7 space-y-8">
+                    <!-- Video Thumbnail with Link -->
+                    <a href="https://youtube.com/shorts/NyNj-4JWuRI?si=TwTyyksSCtAQIxKz" target="_blank"
+                        rel="noopener noreferrer"
+                        class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl block group">
+                        <!-- Cover Image -->
+                        <img src="cover/Tumbnail-impact.png" alt="Sajiva Impact Video"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <!-- Dark overlay -->
+                        <div
+                            class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300">
+                        </div>
+                        <!-- YouTube Play Button -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div
+                                class="w-20 h-20 bg-red-600 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl group-hover:scale-110 transition-transform duration-300 pl-1">
+                                <i class="fa-brands fa-youtube"></i>
+                            </div>
+                        </div>
+                        <!-- Bottom label -->
+                        <div
+                            class="absolute bottom-4 left-4 text-white font-bold tracking-widest text-sm bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm">
+                            ▶ Tonton di YouTube
+                        </div>
+                    </a>
+
+                    <!-- Social Impact Stats -->
+                    <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-sajiva-green">
+                        <h4 class="font-bold text-gray-900 text-lg mb-4">Social Impact</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-sajiva-sand/30 rounded-xl p-4 text-center">
+                                <div class="text-4xl font-bold text-sajiva-green mb-1">52</div>
+                                <div class="text-gray-600 font-medium text-sm" data-i18n="stat_farmer">Mitra Petani
+                                </div>
+                            </div>
+                            <div class="bg-sajiva-sand/30 rounded-xl p-4 text-center">
+                                <div class="text-4xl font-bold text-sajiva-green mb-1">4</div>
+                                <div class="text-gray-600 font-medium text-sm" data-i18n="stat_village">Desa Mitra</div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-400 italic mt-3 text-center" data-i18n="stat_counting">Dan terus
+                            bertambah...</p>
+                    </div>
+                </div>
+
+                <!-- Text (Right 5 cols) -->
+                <div class="lg:col-span-5 flex flex-col justify-center">
+
+                    <!-- Narrative -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="impact_p1">Hari ini, kecantikan tidak
+                            lagi hanya diukur dari penampilan—tetapi diukur dari dampak.<br>Dampak adalah tren baru.</p>
+                        <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="impact_p2">Di Sajiva, setiap pembelian
+                            menjadi bagian dari gerakan yang lebih besar: memberdayakan petani, menghormati kekayaan
+                            bumi, dan menciptakan jalan yang lebih adil dari tanah hingga ke masyarakat. Dengan
+                            menghubungkan petani secara langsung kepada Anda dan memotong perantara yang tidak perlu,
+                            kami membantu komunitas petani berkembang sekaligus menghantarkan karunia alam yang paling
+                            murni ke tangan Anda.</p>
+                        <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="impact_p3">Karena kecantikan sejati
+                            saat ini adalah tentang kesadaran, makna, dan perubahan nyata.<br>Ketika Anda memilih
+                            dampak, Anda tidak hanya memancarkan pesona dari luar—tetapi Anda memancarkan tujuan mulia
+                            dari dalam.</p>
+                        <p class="font-bold text-gray-900 mb-0">- Sajiva</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Be Better With Us Section -->
+    <section id="be-better" class="py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-sajiva-green mb-4" data-i18n="better_title">Our Product
+                </h2>
+                <div class="w-24 h-1 bg-sajiva-earth mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <a href="cardamom-page.html" class="block">
+                    <div class="bg-white rounded-3xl overflow-hidden card-hover shadow-lg border border-gray-100 group">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="cover/cardamom cover.png" alt="Organic Cardamom"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        </div>
+                        <div class="p-8 text-center bg-sajiva-sand/10">
+                            <h3 class="text-xl font-semibold text-gray-900" data-i18n="card_1">Organic Cardamom</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="essential-oil.html" class="block">
+                    <div class="bg-white rounded-3xl overflow-hidden card-hover shadow-lg border border-gray-100 group">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="cover/clove oil cover.PNG" alt="Clove and Cardamom essential oil"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        </div>
+                        <div class="p-8 text-center bg-sajiva-sand/10">
+                            <h3 class="text-xl font-semibold text-gray-900" data-i18n="card_2">Clove and Cardamom
+                                essential oil</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="vco-page.html" class="block">
+                    <div class="bg-white rounded-3xl overflow-hidden card-hover shadow-lg border border-gray-100 group">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="cover/vco cover.png" alt="Virgin Coconut Oil (VCO)"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        </div>
+                        <div class="p-8 text-center bg-sajiva-sand/10">
+                            <h3 class="text-xl font-semibold text-gray-900" data-i18n="card_3">Virgin Coconut Oil (VCO)
+                            </h3>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="cibulao-coffee.html" class="block">
+                    <div class="bg-white rounded-3xl overflow-hidden card-hover shadow-lg border border-gray-100 group">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="cover/udah grading.jpeg" alt="Shade Coffee Cibulao"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        </div>
+                        <div class="p-8 text-center bg-sajiva-sand/10">
+                            <h3 class="text-xl font-semibold text-gray-900" data-i18n="card_4">Shade Coffee Cibulao
+                            </h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer & Contact Section -->
+    <footer id="contact" class="bg-sajiva-green text-white pt-20 pb-10 rounded-t-[3rem] mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid lg:grid-cols-3 gap-12 mb-16">
+                <!-- Info Column -->
+                <div class="space-y-8">
+                    <div class="flex items-center gap-2">
+                        <img src="logos/sajiva-logo-buletan.jpeg" alt="Sajiva Logo"
+                            class="w-10 h-10 object-cover rounded-full shadow-md border-2 border-yellow-400">
+                        <span class="font-bold text-3xl tracking-tight">Sajiva</span>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_factory">Our Factory:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-white/80">
+                            <li>Karunrung, Kec. Rappocini, Makassar, Sulawesi Selatan.</li>
+                            <li>Dramaga, Kec. Dramaga, Bogor, Jawa Barat.</li>
+                        </ol>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_weblist">WEB LIST:</h4>
+                        <ul class="space-y-2 text-white/80">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-globe w-5"></i>
+                                <span data-i18n="footer_mainsite">Main Site</span>: <a
+                                    href="https://sajivaagrolestari.com" target="_blank" rel="noopener noreferrer"
+                                    class="hover:text-white underline decoration-transparent hover:decoration-white transition-all">sajivaagrolestari.com</a>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-heart w-5"></i>
+                                <span data-i18n="footer_socialwork">Social Work</span>: <a href="#"
+                                    class="hover:text-white underline decoration-transparent hover:decoration-white transition-all cursor-default">sajiva-care.org
+                                    (comingsoon)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact & Social Column -->
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_contact_title">Contact Us:
+                        </h4>
+                        <ul class="space-y-4 text-white/80">
+                            <li class="flex items-center gap-3">
+                                <a href="mailto:sajivaagrolestari@gmail.com"
+                                    class="flex items-center gap-3 hover:text-yellow-400 transition-colors">
+                                    <div class="bg-white/10 p-3 rounded-full"><i class="fa-solid fa-envelope"></i></div>
+                                    <span>sajivaagrolestari@gmail.com</span>
+                                </a>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="bg-white/10 p-3 rounded-full"><i class="fa-brands fa-whatsapp text-lg"></i>
+                                </div>
+                                <span>+62 887-4373-12018</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_connect">Let's Connect:
+                        </h4>
+                        <div class="flex gap-4">
+                            <a href="https://www.instagram.com/sajiva.agro" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.tiktok.com/@sajiva.agro" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-tiktok"></i></a>
+                            <a href="javascript:void(0)"
+                                onclick="navigator.clipboard.writeText('@Dickyadisaputra'); alert('WeChat ID @Dickyadisaputra telah disalin ke papan klip / WeChat ID @Dickyadisaputra copied to clipboard!')"
+                                title="WeChat: @Dickyadisaputra"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-weixin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
+                    <h4 class="font-bold text-2xl mb-6 text-white" data-i18n="form_title">We are here for u</h4>
+
+                    <form id="contactForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <!-- Success Message Box (Hidden by default) -->
+                        <div id="formSuccess"
+                            class="hidden bg-green-500/20 border border-green-500 text-white p-3 rounded-xl text-sm text-center mb-4">
+                            <i class="fa-solid fa-check-circle mr-2"></i> <span data-i18n="form_success">Pesan berhasil
+                                terkirim!</span>
+                        </div>
+
+                        <div>
+                            <input type="text" id="nameInput" required
+                                class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all"
+                                data-i18n="form_name_placeholder" placeholder="Nama">
+                        </div>
+                        <div>
+                            <input type="email" id="emailInput" required
+                                class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all"
+                                data-i18n="form_email_placeholder" placeholder="E-mail">
+                        </div>
+                        <div>
+                            <textarea id="messageInput" rows="3" required
+                                class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all resize-none"
+                                data-i18n="form_msg_placeholder" placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-yellow-400 text-sajiva-green font-bold py-3 rounded-xl hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
+                            <span data-i18n="form_send">Send</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-white/20 pt-8 text-center text-white/60 text-sm">
+                &copy; <span id="currentYear"></span> Sajiva Agro. All rights reserved. | Pure. Simple. Beautiful.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/62887437312018" target="_blank" rel="noopener noreferrer"
+        class="fixed bottom-6 right-6 z-[9999] group flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3.5 md:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none"
+        aria-label="Chat WhatsApp Sajiva" title="Chat WhatsApp Sajiva">
+        <span
+            class="absolute -inset-1 rounded-full bg-[#25D366] opacity-75 animate-ping -z-10 group-hover:opacity-100"></span>
+        <i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>
+        <span
+            class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-[200px] transition-all duration-500 ease-in-out font-medium text-sm pr-1"
+            data-i18n="wa_float">
+            Hubungi Kami via WhatsApp
+        </span>
+    </a>
+
+    <!-- JavaScript untuk Fungsionalitas & Multi-bahasa -->
+    <script>
+        // Set Current Year in Footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const successBox = document.getElementById('formSuccess');
+            successBox.classList.remove('hidden');
+            document.getElementById('contactForm').reset();
+
+            // Hide success message after 4 seconds
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 4000);
+        }
+
+        // --- TRANSLATION DICTIONARY ---
+        const translations = {
+            id: {
+                nav_story: "Sajiva Story",
+                nav_impact: "Dampak Komunitas",
+                nav_better: "Produk Kami",
+                nav_start: "Hubungi Kami",
+                hero_title: "Murni. Sederhana. Indah.",
+                hero_sub: "Jadilah Bagian dari Perjalanan",
+                hero_cta: "Mulai Perjalanan",
+                story_title: "Mengapa Sajiva? Apa itu Sajiva?",
+                story_p1: "Dari suburnya Tanah Indonesia, kami menghadirkan produk berkualitas terbaik langsung dari petani nusantara untuk memenuhi kebutuhan konsumen akan produk yang segar, alami, dan terpercaya.",
+                story_p2: "Kami membangun win-win solution yang tidak hanya menghadirkan produk terbaik bagi konsumen, tetapi juga membantu membawa petani ke hilir — menciptakan nilai tambah, pengolahan, hingga akses pasar yang lebih luas bagi petani Indonesia.",
+                story_quote: "\"Kami persembahkan <span class='bg-yellow-200 text-sajiva-dark px-1.5 py-0.5 rounded font-semibold'>mahakarya petani nusantara untuk anda</span>.\"",
+                story_sign: "Sincerely with love,",
+                read_ourstory: "Baca cerita kami",
+                impact_headline: "Dampak adalah Tren Baru",
+                impact_video_label: "*VIDEO",
+                impact_radiate: "Pancarkan Kecantikan dari Dalam.",
+                stat_farmer: "Mitra Petani",
+                stat_village: "Desa Mitra",
+                stat_counting: "Dan terus bertambah...",
+                impact_p1: "Hari ini, kecantikan tidak lagi hanya diukur dari penampilan—tetapi diukur dari dampak.<br>Dampak adalah tren baru.",
+                impact_p2: "Di Sajiva, setiap pembelian menjadi bagian dari gerakan yang lebih besar: memberdayakan petani, menghormati kekayaan bumi, dan menciptakan jalan yang lebih adil dari tanah hingga ke masyarakat. Dengan menghubungkan petani secara langsung kepada Anda dan memotong perantara yang tidak perlu, kami membantu komunitas petani berkembang sekaligus menghantarkan karunia alam yang paling murni ke tangan Anda.",
+                impact_p3: "Karena kecantikan sejati saat ini adalah tentang kesadaran, makna, dan perubahan nyata.<br>Ketika Anda memilih dampak, Anda tidak hanya memancarkan pesona dari luar—tetapi Anda memancarkan tujuan mulia dari dalam.",
+                better_title: "Produk Kami",
+                card_1: "Organic Cardamom",
+                card_2: "Clove and Cardamom essential oil",
+                card_3: "Virgin Coconut Oil (VCO)",
+                card_4: "Shade Coffee Cibulao",
+                footer_factory: "Pabrik Kami:",
+                footer_weblist: "DAFTAR WEB:",
+                footer_mainsite: "Situs Utama",
+                footer_socialwork: "Sosial & Berbagi",
+                footer_contact_title: "Hubungi Kami:",
+                footer_connect: "Mari Terhubung:",
+                form_title: "Kami di sini untuk Anda",
+                form_name_placeholder: "Nama",
+                form_email_placeholder: "E-mail",
+                form_msg_placeholder: "Pesan",
+                form_send: "Kirim",
+                form_success: "Pesan berhasil terkirim!",
+                wa_float: "Hubungi Kami via WhatsApp"
+            },
+            en: {
+                nav_story: "Sajiva Story",
+                nav_impact: "Community Impact",
+                nav_better: "Our Product",
+                nav_start: "Contact Us",
+                hero_title: "Pure. Simple. Beautiful.",
+                hero_sub: "Be Part of the Journey",
+                hero_cta: "Start Journey",
+                story_title: "Why Sajiva? What is Sajiva?",
+                story_p1: "From the fertile soils of Indonesia, we present the finest quality products directly from local farmers to meet consumer demand for fresh, natural, and trusted goods.",
+                story_p2: "We build a win-win solution that not only delivers the best products to consumers but also helps farmers transition downstream — creating added value, processing capabilities, and broader market access for Indonesian farmers.",
+                story_quote: "\"We present the <span class='bg-yellow-200 text-sajiva-dark px-1.5 py-0.5 rounded font-semibold'>masterpiece of local farmers for you</span>.\"",
+                story_sign: "Sincerely with love,",
+                read_ourstory: "Baca cerita kami",
+                impact_headline: "Impactful is the New Trend",
+                impact_video_label: "*VIDEO",
+                impact_radiate: "Radiate the Beauty Within.",
+                stat_farmer: "Partner Farmer",
+                stat_village: "Partner Villages",
+                stat_counting: "And still counting...",
+                impact_p1: "Today, beauty is no longer measured by appearance alone—it’s measured by impact.<br>Impactful is the new trend.",
+                impact_p2: "At Sajiva, every purchase becomes part of a bigger movement: empowering farmers, honoring the earth’s bounty, and creating a fairer path from soil to society. By connecting growers directly to you and cutting out unnecessary middlemen, we help farming communities thrive while delivering nature’s purest gifts into your hands.",
+                impact_p3: "Because true beauty today is conscious, meaningful, and transformative.<br>When you choose impact, you don’t just glow outwardly—you radiate purpose from within.",
+                better_title: "Our Product",
+                card_1: "Organic Cardamom",
+                card_2: "Clove and Cardamom essential oil",
+                card_3: "Virgin Coconut Oil (VCO)",
+                card_4: "Shade Coffee Cibulao",
+                footer_factory: "Our Factory:",
+                footer_weblist: "WEB LIST:",
+                footer_mainsite: "Main Site",
+                footer_socialwork: "Social Work",
+                footer_contact_title: "Contact Us:",
+                footer_connect: "Let's Connect:",
+                form_title: "We are here for u",
+                form_name_placeholder: "Name",
+                form_email_placeholder: "E-mail",
+                form_msg_placeholder: "Message",
+                form_send: "Send",
+                form_success: "Message sent successfully!",
+                wa_float: "Chat via WhatsApp"
+            },
+            zh: {
+                nav_story: "Sajiva 故事",
+                nav_impact: "社区影响",
+                nav_better: "我们的产品",
+                nav_start: "联系我们",
+                hero_title: "纯粹. 简单. 美丽.",
+                hero_sub: "成为旅程的一部分",
+                hero_cta: "开始旅程",
+                story_title: "为什么选择 Sajiva？什么是 Sajiva？",
+                story_p1: "源自印度尼西亚肥沃的土地，我们直接从当地农民那里带来最优质的产品，以满足消费者对新鲜、天然和值得信赖的产品需求。",
+                story_p2: "我们构建了双赢解决方案，不仅为消费者带来最好的产品，还帮助农民走向下游——为印度尼西亚农民创造附加值、加工能力和更广泛的市场准入。",
+                story_quote: "\"我们为您呈现<span class='bg-yellow-200 text-sajiva-dark px-1.5 py-0.5 rounded font-semibold'>群岛农民的杰作</span>。\"",
+                story_sign: "满载着爱,",
+                read_ourstory: "阅读我们的故事",
+                impact_headline: "影响力是新趋势",
+                impact_video_label: "*视频",
+                impact_radiate: "散发内在美。",
+                stat_farmer: "合作农民",
+                stat_village: "合作村庄",
+                stat_counting: "并且还在增加...",
+                impact_p1: "如今，美丽不再仅仅由外表来衡量——而是由影响力来衡量。<br>影响力是新趋势。",
+                impact_p2: "在 Sajiva，每一次购买都成为更大运动的一部分：赋能农民、致敬土地的馈赠，并创造一条从土壤到社会更公平的路径。通过将种植者直接与您联系起来并减少不必要的中间商，我们在帮助农业社区蓬勃发展的同时，也将大自然最纯净的礼物送到您的手中。",
+                impact_p3: "因为如今真正的美丽是自觉、有意义且具有变革性的。<br>当你选择影响力时，你不仅是在外表散发光芒——更是从内而外散发着使命感。",
+                better_title: "我们的产品",
+                card_1: "有机小豆蔻 (Organic Cardamom)",
+                card_2: "丁香和小豆蔻精油 (Clove & Cardamom Essential Oil)",
+                card_3: "初榨椰子油 (Virgin Coconut Oil)",
+                card_4: "Cibulao 遮阴咖啡 (Shade Coffee Cibulao)",
+                footer_factory: "我们的工厂:",
+                footer_weblist: "网站列表:",
+                footer_mainsite: "主网站",
+                footer_socialwork: "社会工作",
+                footer_contact_title: "联系我们:",
+                footer_connect: "让我们联系:",
+                form_title: "我们在这里为您服务",
+                form_name_placeholder: "姓名",
+                form_email_placeholder: "邮箱",
+                form_msg_placeholder: "信息",
+                form_send: "发送",
+                form_success: "信息发送成功！",
+                wa_float: "WhatsApp 联系我们"
+            }
+        };
+
+        // Function to update content based on language
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    // Check if it's an input/textarea placeholder or regular text
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            // Sync selectors
+            document.getElementById('languageSwitcher').value = lang;
+            document.getElementById('mobileLanguageSwitcher').value = lang;
+
+            // Save preference to localStorage
+            localStorage.setItem('sajiva_lang', lang);
+        }
+
+        // Event Listeners for Selectors
+        document.getElementById('languageSwitcher').addEventListener('change', (e) => {
+            setLanguage(e.target.value);
+        });
+
+        document.getElementById('mobileLanguageSwitcher').addEventListener('change', (e) => {
+            setLanguage(e.target.value);
+        });
+
+        // Initialize Language (Check localStorage or default to 'id')
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('sajiva_lang') || 'id';
+            setLanguage(savedLang);
+        });
+
+    </script>
+</body>
+
+</html>

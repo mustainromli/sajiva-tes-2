@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sajiva - Virgin Coconut Oil</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sajiva: {
+                            green: '#2e7d32',
+                            dark: '#1b4b1e',
+                            light: '#fdfbf7',
+                            earth: '#8b5a2b',
+                            sand: '#eaddcf'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Overrides */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-sajiva-light text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.location.href='index.html'">
+                    <img src="logos/sajiva-logo-buletan.jpeg" alt="Sajiva Logo"
+                        class="w-10 h-10 object-cover rounded-full shadow-sm border-2 border-sajiva-green">
+                    <span class="font-bold text-2xl text-sajiva-green tracking-tight">Sajiva</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#sajiva-story" class="text-gray-600 hover:text-sajiva-green font-medium transition-colors"
+                        data-i18n="nav_story">Sajiva Story</a>
+                    <a href="index.html#community-impact"
+                        class="text-gray-600 hover:text-sajiva-green font-medium transition-colors"
+                        data-i18n="nav_impact">Community Impact</a>
+                    <a href="index.html#be-better" class="text-gray-600 hover:text-sajiva-green font-medium transition-colors"
+                        data-i18n="nav_better">Our Product</a>
+                    <a href="#contact"
+                        class="bg-sajiva-green text-white px-5 py-2 rounded-full hover:bg-sajiva-dark font-medium transition-colors shadow-md"
+                        data-i18n="nav_start">Contact Us</a>
+
+                    <!-- Language Switcher -->
+                    <div class="relative flex items-center bg-gray-100 rounded-full px-3 py-1">
+                        <i class="fa-solid fa-globe text-gray-500 mr-2 text-sm"></i>
+                        <select id="languageSwitcher"
+                            class="bg-transparent border-none text-sm font-medium text-gray-700 focus:outline-none focus:ring-0 cursor-pointer">
+                            <option value="id" selected>ID - Indonesia</option>
+                            <option value="en">EN - English</option>
+                            <option value="zh">ZH - 中文</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <select id="mobileLanguageSwitcher"
+                        class="bg-gray-100 border-none rounded-full px-2 py-1 text-xs font-medium text-gray-700 focus:outline-none">
+                        <option value="id" selected>ID</option>
+                        <option value="en">EN</option>
+                        <option value="zh">ZH</option>
+                    </select>
+                    <button id="mobileMenuBtn" class="text-gray-600 hover:text-sajiva-green focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu"
+            class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="index.html#sajiva-story"
+                    class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md"
+                    data-i18n="nav_story">Sajiva Story</a>
+                <a href="index.html#community-impact"
+                    class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md"
+                    data-i18n="nav_impact">Community Impact</a>
+                <a href="index.html#be-better"
+                    class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-sajiva-green hover:bg-gray-50 rounded-md"
+                    data-i18n="nav_better">Our Product</a>
+                <a href="#contact"
+                    class="block mt-4 text-center bg-sajiva-green text-white px-3 py-3 rounded-full font-medium hover:bg-sajiva-dark"
+                    data-i18n="nav_start">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-0">
+        <!-- Product Intro Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Product Image -->
+                <div class="flex justify-center items-center h-full min-h-[300px]">
+                    <img src="cover/Vco.png" alt="Virgin Coconut Oil" class="w-full max-w-sm h-auto object-contain rounded-lg shadow-md">
+                </div>
+
+                <!-- Product Description -->
+                <div class="space-y-6 text-gray-600 leading-relaxed text-[15px]">
+                    <p data-i18n="vco_desc1">
+                        Nikmati kemurnian alam dalam setiap tetes Virgin Coconut Oil (VCO) Premium. Diproses menggunakan metode cold-pressed tanpa pemanasan suhu tinggi dan tanpa bahan kimia (RBD), sehingga menjaga seluruh nutrisi penting, aroma kelapa segar, dan rasa yang lembut.
+                    </p>
+                    <p data-i18n="vco_desc2">
+                        VCO kami kaya akan Asam Laurat (Medium Chain Triglycerides/MCT) yang berfungsi sebagai peningkat metabolisme alami, mendukung kesehatan sistem pencernaan, serta membantu program diet sehat sebagai sumber energi instan tanpa meningkatkan kadar kolesterol jahat.
+                    </p>
+                    <p data-i18n="vco_desc3">
+                        Selain untuk dikonsumsi, minyak multifungsi ini merupakan rahasia kecantikan alami. Sangat efektif digunakan sebagai pelembab kulit, masker rambut untuk kilau alami, hingga pembersih wajah yang lembut namun bersih maksimal.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Specification Section -->
+        <section class="bg-sajiva-sand/30 py-16">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl font-bold text-gray-900" data-i18n="spec_title" style="font-family: serif;">Product Specification</h2>
+                </div>
+
+                <div class="bg-white overflow-hidden shadow-sm">
+                    <div class="grid grid-cols-1 divide-y divide-gray-100">
+                        <div class="grid grid-cols-3 sm:grid-cols-3 p-5">
+                            <div class="col-span-1 font-semibold text-gray-800 text-sm" data-i18n="vco_spec_raw">Bahan Baku</div>
+                            <div class="col-span-2 text-gray-600 text-sm" data-i18n="vco_val_raw">100% Kelapa Segar (Cocos Nucifera)</div>
+                        </div>
+                        <div class="grid grid-cols-3 sm:grid-cols-3 p-5">
+                            <div class="col-span-1 font-semibold text-gray-800 text-sm" data-i18n="vco_spec_method">Metode Ekstraksi</div>
+                            <div class="col-span-2 text-gray-600 text-sm" data-i18n="vco_val_method">Cold-Pressed & Centrifuged (Tanpa Pemanasan)</div>
+                        </div>
+                        <div class="grid grid-cols-3 sm:grid-cols-3 p-5">
+                            <div class="col-span-1 font-semibold text-gray-800 text-sm" data-i18n="vco_spec_color">Warna</div>
+                            <div class="col-span-2 text-gray-600 text-sm" data-i18n="vco_val_color">Jernih/Bening Transparan (Liquid) / Putih Salju (Solid)</div>
+                        </div>
+                        <div class="grid grid-cols-3 sm:grid-cols-3 p-5">
+                            <div class="col-span-1 font-semibold text-gray-800 text-sm" data-i18n="vco_spec_aroma">Aroma</div>
+                            <div class="col-span-2 text-gray-600 text-sm" data-i18n="vco_val_aroma">Aroma Kelapa Segar Lembut (Tidak Bau Tengik)</div>
+                        </div>
+                        <div class="grid grid-cols-3 sm:grid-cols-3 p-5">
+                            <div class="col-span-1 font-semibold text-gray-800 text-sm" data-i18n="vco_spec_content">Kandungan Utama</div>
+                            <div class="col-span-2 text-gray-600 text-sm" data-i18n="vco_val_content">Asam Laurat > 50%, Asam Kaprilat, Asam Kaprat</div>
+                        </div>
+                        <div class="grid grid-cols-3 sm:grid-cols-3 p-5">
+                            <div class="col-span-1 font-semibold text-gray-800 text-sm" data-i18n="vco_spec_texture">Tekstur</div>
+                            <div class="col-span-2 text-gray-600 text-sm" data-i18n="vco_val_texture">Ringan, Mudah Meresap, Tidak Lengket</div>
+                        </div>
+                        <div class="grid grid-cols-3 sm:grid-cols-3 p-5">
+                            <div class="col-span-1 font-semibold text-gray-800 text-sm" data-i18n="vco_spec_freeze">Titik Beku</div>
+                            <div class="col-span-2 text-gray-600 text-sm" data-i18n="vco_val_freeze">Akan Membeku pada Suhu di Bawah 24°C</div>
+                        </div>
+                        <div class="grid grid-cols-3 sm:grid-cols-3 p-5">
+                            <div class="col-span-1 font-semibold text-gray-800 text-sm" data-i18n="vco_spec_pack">Kemasan</div>
+                            <div class="col-span-2 text-gray-600 text-sm" data-i18n="vco_val_pack">Botol PET/Kaca Food Grade (Tersedia ukuran 100ml, 250ml, 500ml)</div>
+                        </div>
+                        <div class="grid grid-cols-3 sm:grid-cols-3 p-5">
+                            <div class="col-span-1 font-semibold text-gray-800 text-sm" data-i18n="vco_spec_shelf">Masa Simpan</div>
+                            <div class="col-span-2 text-gray-600 text-sm" data-i18n="vco_val_shelf">12 - 24 Bulan (Simpan di suhu ruang & hindari sinar matahari langsung)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer & Contact Section -->
+    <footer id="contact" class="bg-sajiva-green text-white pt-20 pb-10 mt-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="grid lg:grid-cols-3 gap-12 mb-16">
+                <!-- Info Column -->
+                <div class="space-y-8">
+                    <div class="flex items-center gap-2">
+                        <img src="logos/sajiva-logo-buletan.jpeg" alt="Sajiva Logo"
+                            class="w-10 h-10 object-cover rounded-full shadow-md border-2 border-yellow-400">
+                        <span class="font-bold text-3xl tracking-tight">Sajiva</span>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_factory">Our Factory:</h4>
+                        <ol class="list-decimal list-inside space-y-2 text-white/80">
+                            <li>Karunrung, Kec. Rappocini, Makassar, Sulawesi Selatan.</li>
+                            <li>Dramaga, Kec. Dramaga, Bogor, Jawa Barat.</li>
+                        </ol>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_weblist">WEB LIST:</h4>
+                        <ul class="space-y-2 text-white/80">
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-globe w-5"></i>
+                                <span data-i18n="footer_mainsite">Main Site</span>: <a href="https://sajivaagrolestari.com" target="_blank" rel="noopener noreferrer"
+                                    class="hover:text-white underline decoration-transparent hover:decoration-white transition-all">sajivaagrolestari.com</a>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fa-solid fa-heart w-5"></i>
+                                <span data-i18n="footer_socialwork">Social Work</span>: <a href="#"
+                                    class="hover:text-white underline decoration-transparent hover:decoration-white transition-all cursor-default">sajiva-care.org (comingsoon)</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact & Social Column -->
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_contact_title">Contact Us:
+                        </h4>
+                        <ul class="space-y-4 text-white/80">
+                            <li class="flex items-center gap-3">
+                                <a href="mailto:sajivaagrolestari@gmail.com" class="flex items-center gap-3 hover:text-yellow-400 transition-colors">
+                                    <div class="bg-white/10 p-3 rounded-full"><i class="fa-solid fa-envelope"></i></div>
+                                    <span>sajivaagrolestari@gmail.com</span>
+                                </a>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="bg-white/10 p-3 rounded-full"><i class="fa-brands fa-whatsapp text-lg"></i>
+                                </div>
+                                <span>+62 887-4373-12018</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-yellow-400 mb-4 text-lg" data-i18n="footer_connect">Let's Connect:
+                        </h4>
+                        <div class="flex gap-4">
+                            <a href="https://www.instagram.com/sajiva.agro" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.tiktok.com/@sajiva.agro" target="_blank" rel="noopener noreferrer"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-tiktok"></i></a>
+                            <a href="javascript:void(0)" onclick="navigator.clipboard.writeText('@Dickyadisaputra'); alert('WeChat ID @Dickyadisaputra telah disalin ke papan klip / WeChat ID @Dickyadisaputra copied to clipboard!')" title="WeChat: @Dickyadisaputra"
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-400 hover:text-sajiva-green transition-all text-xl"><i
+                                    class="fa-brands fa-weixin"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
+                    <h4 class="font-bold text-2xl mb-6 text-white" data-i18n="form_title">We are here for u</h4>
+
+                    <form id="contactForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <!-- Success Message Box (Hidden by default) -->
+                        <div id="formSuccess"
+                            class="hidden bg-green-500/20 border border-green-500 text-white p-3 rounded-xl text-sm text-center mb-4">
+                            <i class="fa-solid fa-check-circle mr-2"></i> <span data-i18n="form_success">Pesan berhasil
+                                terkirim!</span>
+                        </div>
+
+                        <div>
+                            <input type="text" id="nameInput" required
+                                class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all"
+                                data-i18n="form_name_placeholder" placeholder="Nama">
+                        </div>
+                        <div>
+                            <input type="email" id="emailInput" required
+                                class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all"
+                                data-i18n="form_email_placeholder" placeholder="E-mail">
+                        </div>
+                        <div>
+                            <textarea id="messageInput" rows="3" required
+                                class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-yellow-400 focus:bg-white/20 transition-all resize-none"
+                                data-i18n="form_msg_placeholder" placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-yellow-400 text-sajiva-green font-bold py-3 rounded-xl hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
+                            <span data-i18n="form_send">Send</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-white/20 pt-8 text-center text-white/60 text-sm">
+                &copy; <span id="currentYear"></span> Sajiva Agro. All rights reserved. | Pure. Simple. Beautiful.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/62887437312018" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 z-[9999] group flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3.5 md:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none"
+       aria-label="Chat WhatsApp Sajiva" title="Chat WhatsApp Sajiva">
+        <span class="absolute -inset-1 rounded-full bg-[#25D366] opacity-75 animate-ping -z-10 group-hover:opacity-100"></span>
+        <i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-[200px] transition-all duration-500 ease-in-out font-medium text-sm pr-1" data-i18n="wa_float">
+            Hubungi Kami via WhatsApp
+        </span>
+    </a>
+
+    <!-- JavaScript untuk Fungsionalitas & Multi-bahasa -->
+    <script>
+        // Set Current Year in Footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobileMenuBtn');
+        const menu = document.getElementById('mobileMenu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const successBox = document.getElementById('formSuccess');
+            successBox.classList.remove('hidden');
+            document.getElementById('contactForm').reset();
+
+            // Hide success message after 4 seconds
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 4000);
+        }
+
+        // --- TRANSLATION DICTIONARY ---
+        const translations = {
+            id: {
+                nav_story: "Sajiva Story",
+                nav_impact: "Dampak Komunitas",
+                nav_better: "Produk Kami",
+                nav_start: "Hubungi Kami",
+                footer_factory: "Pabrik Kami:",
+                footer_weblist: "DAFTAR WEB:",
+                footer_mainsite: "Situs Utama",
+                footer_socialwork: "Sosial & Berbagi",
+                footer_contact_title: "Hubungi Kami:",
+                footer_connect: "Mari Terhubung:",
+                form_title: "Kami di sini untuk Anda",
+                form_name_placeholder: "Nama",
+                form_email_placeholder: "E-mail",
+                form_msg_placeholder: "Pesan",
+                form_send: "Kirim",
+                form_success: "Pesan berhasil terkirim!",
+                vco_desc1: "Nikmati kemurnian alam dalam setiap tetes Virgin Coconut Oil (VCO) Premium. Diproses menggunakan metode cold-pressed tanpa pemanasan suhu tinggi dan tanpa bahan kimia (RBD), sehingga menjaga seluruh nutrisi penting, aroma kelapa segar, dan rasa yang lembut.",
+                vco_desc2: "VCO kami kaya akan Asam Laurat (Medium Chain Triglycerides/MCT) yang berfungsi sebagai peningkat metabolisme alami, mendukung kesehatan sistem pencernaan, serta membantu program diet sehat sebagai sumber energi instan tanpa meningkatkan kadar kolesterol jahat.",
+                vco_desc3: "Selain untuk dikonsumsi, minyak multifungsi ini merupakan rahasia kecantikan alami. Sangat efektif digunakan sebagai pelembab kulit, masker rambut untuk kilau alami, hingga pembersih wajah yang lembut namun bersih maksimal.",
+                spec_title: "Product Specification",
+                vco_spec_raw: "Bahan Baku",
+                vco_val_raw: "100% Kelapa Segar (Cocos Nucifera)",
+                vco_spec_method: "Metode Ekstraksi",
+                vco_val_method: "Cold-Pressed & Centrifuged (Tanpa Pemanasan)",
+                vco_spec_color: "Warna",
+                vco_val_color: "Jernih/Bening Transparan (Liquid) / Putih Salju (Solid)",
+                vco_spec_aroma: "Aroma",
+                vco_val_aroma: "Aroma Kelapa Segar Lembut (Tidak Bau Tengik)",
+                vco_spec_content: "Kandungan Utama",
+                vco_val_content: "Asam Laurat > 50%, Asam Kaprilat, Asam Kaprat",
+                vco_spec_texture: "Tekstur",
+                vco_val_texture: "Ringan, Mudah Meresap, Tidak Lengket",
+                vco_spec_freeze: "Titik Beku",
+                vco_val_freeze: "Akan Membeku pada Suhu di Bawah 24°C",
+                vco_spec_pack: "Kemasan",
+                vco_val_pack: "Botol PET/Kaca Food Grade (Tersedia ukuran 100ml, 250ml, 500ml)",
+                vco_spec_shelf: "Masa Simpan",
+                vco_val_shelf: "12 - 24 Bulan (Simpan di suhu ruang & hindari sinar matahari langsung)",
+                wa_float: "Hubungi Kami via WhatsApp"
+            },
+            en: {
+                nav_story: "Sajiva Story",
+                nav_impact: "Community Impact",
+                nav_better: "Our Product",
+                nav_start: "Contact Us",
+                footer_factory: "Our Factory:",
+                footer_weblist: "WEB LIST:",
+                footer_mainsite: "Main Site",
+                footer_socialwork: "Social Work",
+                footer_contact_title: "Contact Us:",
+                footer_connect: "Let's Connect:",
+                form_title: "We are here for u",
+                form_name_placeholder: "Name",
+                form_email_placeholder: "E-mail",
+                form_msg_placeholder: "Message",
+                form_send: "Send",
+                form_success: "Message sent successfully!",
+                vco_desc1: "Enjoy nature's purity in every drop of Virgin Coconut Oil (VCO) Premium. Processed using the cold-pressed method without high-temperature heating and without chemicals (RBD), thus preserving all essential nutrients, fresh coconut aroma, and a smooth taste.",
+                vco_desc2: "Our VCO is rich in Lauric Acid (Medium Chain Triglycerides/MCT) which acts as a natural metabolism booster, supports digestive health, and aids healthy diet programs as an instant energy source without increasing bad cholesterol levels.",
+                vco_desc3: "Beyond consumption, this multifunctional oil is a secret to natural beauty. It's highly effective as a skin moisturizer, hair mask for natural shine, and a facial cleanser that is gentle yet deeply cleansing.",
+                spec_title: "Product Specification",
+                vco_spec_raw: "Raw Material",
+                vco_val_raw: "100% Fresh Coconut (Cocos Nucifera)",
+                vco_spec_method: "Extraction Method",
+                vco_val_method: "Cold-Pressed & Centrifuged (No Heat)",
+                vco_spec_color: "Color",
+                vco_val_color: "Clear/Crystal Transparent (Liquid) / Snow White (Solid)",
+                vco_spec_aroma: "Aroma",
+                vco_val_aroma: "Gentle Fresh Coconut Scent (No Rancid Smell)",
+                vco_spec_content: "Main Content",
+                vco_val_content: "Lauric Acid > 50%, Caprylic Acid, Capric Acid",
+                vco_spec_texture: "Texture",
+                vco_val_texture: "Light, Easily Absorbed, Non-Sticky",
+                vco_spec_freeze: "Freezing Point",
+                vco_val_freeze: "Will freeze at temperatures below 24°C",
+                vco_spec_pack: "Packaging",
+                vco_val_pack: "Food Grade PET/Glass Bottle (Available in 100ml, 250ml, 500ml)",
+                vco_spec_shelf: "Shelf Life",
+                vco_val_shelf: "12 - 24 Months (Store at room temperature & avoid direct sunlight)",
+                wa_float: "Chat via WhatsApp"
+            },
+            zh: {
+                nav_story: "Sajiva 故事",
+                nav_impact: "社区影响",
+                nav_better: "我们的产品",
+                nav_start: "联系我们",
+                footer_factory: "我们的工厂:",
+                footer_weblist: "网站列表:",
+                footer_mainsite: "主网站",
+                footer_socialwork: "社会工作",
+                footer_contact_title: "联系我们:",
+                footer_connect: "让我们联系:",
+                form_title: "我们在这里为您服务",
+                form_name_placeholder: "姓名",
+                form_email_placeholder: "邮箱",
+                form_msg_placeholder: "信息",
+                form_send: "发送",
+                form_success: "信息发送成功！",
+                vco_desc1: "每一滴优质初榨椰子油 (VCO) 都让您享受大自然的纯净。采用冷压法加工，无需高温加热，不含化学物质 (RBD)，从而保留了所有必需的营养成分、新鲜的椰子香气和柔滑的口感。",
+                vco_desc2: "我们的 VCO 富含月桂酸（中链甘油三酯/MCT），可作为天然代谢增强剂，支持消化健康，并作为即时能量来源辅助健康饮食计划，且不会增加坏胆固醇水平。",
+                vco_desc3: "除了食用之外，这种多功能油还是自然美的秘诀。它作为皮肤保湿剂、增加自然光泽的发膜以及温和而深层清洁的洗面奶都非常有效。",
+                spec_title: "产品规格",
+                vco_spec_raw: "原料",
+                vco_val_raw: "100% 新鲜椰子 (Cocos Nucifera)",
+                vco_spec_method: "提取方法",
+                vco_val_method: "冷压和离心（无热）",
+                vco_spec_color: "颜色",
+                vco_val_color: "清澈/透明 (液体) / 雪白 (固体)",
+                vco_spec_aroma: "香气",
+                vco_val_aroma: "温和新鲜椰子香 (无哈喇味)",
+                vco_spec_content: "主要成分",
+                vco_val_content: "月桂酸 > 50%, 辛酸, 癸酸",
+                vco_spec_texture: "质地",
+                vco_val_texture: "轻盈, 易吸收, 不粘腻",
+                vco_spec_freeze: "冰点",
+                vco_val_freeze: "在 24°C 以下的温度下会冻结",
+                vco_spec_pack: "包装",
+                vco_val_pack: "食品级 PET/玻璃瓶（提供 100ml、250ml、500ml）",
+                vco_spec_shelf: "保质期",
+                vco_val_shelf: "12 - 24 个月（室温保存并避免阳光直射）",
+                wa_float: "WhatsApp 联系我们"
+            }
+        };
+
+        // Function to update content based on language
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    // Check if it's an input/textarea placeholder or regular text
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Sync selectors
+            document.getElementById('languageSwitcher').value = lang;
+            document.getElementById('mobileLanguageSwitcher').value = lang;
+
+            // Save preference to localStorage
+            localStorage.setItem('sajiva_lang', lang);
+        }
+
+        // Event Listeners for Selectors
+        document.getElementById('languageSwitcher').addEventListener('change', (e) => {
+            setLanguage(e.target.value);
+        });
+
+        document.getElementById('mobileLanguageSwitcher').addEventListener('change', (e) => {
+            setLanguage(e.target.value);
+        });
+
+        // Initialize Language (Check localStorage or default to 'id')
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('sajiva_lang') || 'id';
+            setLanguage(savedLang);
+        });
+
+    </script>
+</body>
+
+</html>
